@@ -17,10 +17,13 @@ const hide = ref(false);
 
 const changethe = (event)=>{
 
-  console.log(event.target)
-  console.log(event.currentTarget )
-  console.log(event.eventPhase)
-  console.log("here you go ")
+
+  //https://developer.mozilla.org/en-US/docs/Web/API/Event/eventPhase
+  if (event.eventPhase ===2){
+
+    hide.value =!hide
+  }
+
 }
 
 </script>
