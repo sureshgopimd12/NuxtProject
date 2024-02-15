@@ -1,6 +1,9 @@
 <template>
-  <div class="alert-wrapper">
-    <div class="primary-alert-box">
+  <!-- <div class="alert-wrapper"> -->
+    <div :class="`${varient}-alert-box`">
+      <slot></slot>
+    </div>
+    <!-- <div class="primary-alert-box">
       This is a primary alert ! Please check it out
     </div>
     <div class="secondary-alert-box">
@@ -17,8 +20,16 @@
     </div>
     <div class="info-alert-box">This is a info alert ! Please check it out</div>
     <div class="dark-alert-box">This is a dark alert ! Please check it out</div>
-  </div>
+  </div> -->
 </template>
+
+<script setup lang="ts">
+type varientType = 'primary' | 'seconday' |  'success' | 'danger' | 'warning' | 'info' | 'dark'
+
+withDefaults(defineProps<{ varient?: varientType }>(), {
+  varient: 'primary'
+})
+</script>
 
 <style scoped>
 .primary-alert-box {
@@ -88,7 +99,6 @@
   color: #4b4b4b;
   background-color: #e2e2e2;
   border-color: #e2e2e2;
-
   border-radius: 6px;
   position: relative;
   padding: 11px;
